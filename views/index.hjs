@@ -3,6 +3,7 @@
   <head>
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src='/javascripts/globals.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   </head>
   <body>
@@ -14,14 +15,12 @@
     <div class="mydiv"></div>
     <div class="mydiv"></div>
     <div class="mydiv"></div>
-    <div class="mydiv"></div>
-    <div class="mydiv"></div>
   </body>
 
   <script>
     $(document).ready(function() {
       $.each($('.mydiv'), function(index, value) {
-        $(value).html(index);
+        $(value).html(calorie_dictionary.rotisserieChicken);
       });
     });
 
