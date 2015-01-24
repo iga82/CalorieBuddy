@@ -9,20 +9,25 @@
   <body>
     <h1>{{ title }}</h1>
     <p>Welcome to {{ title }}</p>
-    <p>I am {{ age }} years old!</p>
-    <input id="clickMe" class="typeDiv" type="button" onclick="" />
-    <div class="mydiv"></div>
-    <div class="mydiv"></div>
-    <div class="mydiv"></div>
-    <div class="mydiv"></div>
-  </body>
+
+  <div class="calorieTotal">
+    <h1 style="color: red;">233</h1>
+  </div>
+
+  <div class="itemSelect">
+  </div>
+
+  <button class="btn1">Add New Item</button>
 
   <script>
     $(document).ready(function() {
-      $.each($('.mydiv'), function(index, value) {
-        $(value).html(calorie_dictionary.rotisserieChicken);
+      $(".btn1").click(function(){
+        $('.itemSelect').append("<div><select class='select'></select></div>");
+        for(var key in calorie_dictionary){
+          $('.select').append("<option>" + key + "</option>");
+        }
       });
     });
-
   </script>
+
 </html>

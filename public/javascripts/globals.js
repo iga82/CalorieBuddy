@@ -36,3 +36,5 @@ var calorie_dictionary = {
   pockySticks : 12.5
 };
 
+var calorie_total = 0;
+
