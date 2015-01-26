@@ -23,7 +23,7 @@
   <script>
     $(document).ready(function() {
       $(".btn1").click(function(){
-        $('.itemSelect').append("<div><select class='select" + selectIndex + "'></select></div>");
+        $('.itemSelect').append("<div><select class='select" + selectIndex + "'></select> Amount:<input type='text' name='amount' size='4'></div>");
         var selectDiv = '.select' + selectIndex;
         for(var key in calorie_dictionary){
           $(selectDiv).append("<option>" + key + "</option>");
