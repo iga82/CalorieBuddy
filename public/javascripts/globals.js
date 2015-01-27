@@ -1,6 +1,6 @@
 // globals
 var total_calorie_count = 1;
-var selectIndex = 0;
+var textIndex = 0;
 
 var calorie_dictionary = {
   avocado : 1.7,
