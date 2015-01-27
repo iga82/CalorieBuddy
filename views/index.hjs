@@ -39,17 +39,14 @@
         var loopThroughtTextIndex = 0;
         // loop through the array of selected items
         $.each(selected_items, function(index, value) {
-          // console.log("The string value: " + $(value).val());
           var textInputName = '#textInput' + loopThroughtTextIndex;
           // increase text input index
           loopThroughtTextIndex += 1;
           // get the value from the text input box and convert into an int
-          // console.log("text input name: " + textInputName);
           var textInputField = parseInt($(textInputName).val());
-          // console.log("text input field: " + textInputField);
+          // build up the total
           total += calorie_dictionary[$(value).val()] * textInputField;
         });
-        console.log("this is the total: " + total);
         $('.calorieTotal').html(total);
       });
 
