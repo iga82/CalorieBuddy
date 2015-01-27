@@ -33,8 +33,15 @@
       });
 
       $(".btn2").click(function(){
-        var conceptName = $('.select').find(":selected").text(); // new - delete
-        $('.calorieTotal').html(conceptName);
+        // var selected_items = $('.select').find(":selected").text();
+        var total = "";
+        var selected_items = $('.select').find(":selected").get();
+        $.each(selected_items, function(index, value) {
+          console.log("The string value: " + $(value).val());
+          total += $(value).val();
+        });
+        console.log("this is the total: " + total);
+        $('.calorieTotal').html(total);
       });
 
     });
