@@ -33,7 +33,7 @@
 
       $(".btn2").click(function(){
         // var selected_items = $('.select').find(":selected").text();
-        var total = 0;
+        var total = 0.0;
         // get an array of JSON Objects with the selected options
         var selected_items = $('.select').find(":selected").get();
         // index that loops through the different text boxes
@@ -44,7 +44,7 @@
           // increase text input index
           loopThroughtTextIndex += 1;
           // get the value from the text input box and convert into an int
-          var textInputField = parseInt($(textInputName).val());
+          var textInputField = parseFloat($(textInputName).val());
           // build up the total
           total += calorie_dictionary[$(value).val()] * textInputField;
         });
