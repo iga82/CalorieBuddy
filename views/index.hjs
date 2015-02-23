@@ -26,13 +26,12 @@
       $(".btn1").click(function(){
         $('.itemSelect').append("<div><select class='select'></select> Amount: <input id='textInput" + textIndex + "' type='text' name='amount' size='4'></div>");
         textIndex += 1;
-        for(var key in calorie_dictionary){
+        for(var key in keyword_dictionary){
           $('.select').append("<option>" + key + "</option>");
         }
       });
 
       $(".btn2").click(function(){
-        // var selected_items = $('.select').find(":selected").text();
         var total = 0.0;
         // get an array of JSON Objects with the selected options
         var selected_items = $('.select').find(":selected").get();
@@ -45,8 +44,11 @@
           loopThroughtTextIndex += 1;
           // get the value from the text input box and convert into an int
           var textInputField = parseFloat($(textInputName).val());
+          if(isNaN(textInputField)){
+            textInputField = 0;
+          }
           // build up the total
-          total += calorie_dictionary[$(value).val()] * textInputField;
+          total += keyword_dictionary[$(value).val()].calories * textInputField;
         });
         $('.calorieTotal').html(total);
       });
