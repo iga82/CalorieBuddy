@@ -24,7 +24,7 @@
   <script>
     $(document).ready(function() {
       $(".btn1").click(function(){
-        $('.itemSelect').append("<div><select class='select'></select> Amount: <input id='textInput" + textIndex + "' type='text' name='amount' size='4'></div>");
+        $('.itemSelect').append("<div><select class='select'></select> Amount: <input class ='input-mini' type='text' id='textInput" + textIndex + "' placeholder='#.##'></div>");
         textIndex += 1;
         for(var key in keyword_dictionary){
           $('.select').append("<option>" + key + "</option>");
