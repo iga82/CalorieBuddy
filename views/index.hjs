@@ -23,8 +23,12 @@
 
   <script>
     $(document).ready(function() {
+      var selectHTML = "<div class='input-append'><select class='select'></select>";
+      var textInputHTML = "<input class ='input-mini' type='text' "
+                            + "id='textInput" + textIndex + "' placeholder='Amount'>";
+      var servingHTML = " <span class='add-on'>.00</span></div>"
       $(".btn1").click(function(){
-        $('.itemSelect').append("<div><select class='select'></select> Amount: <input class ='input-mini' type='text' id='textInput" + textIndex + "' placeholder='#.##'></div>");
+        $('.itemSelect').append(selectHTML + textInputHTML + servingHTML);
         textIndex += 1;
         for(var key in keyword_dictionary){
           $('.select').append("<option>" + key + "</option>");
