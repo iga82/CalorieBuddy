@@ -4,37 +4,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/bootstrap/css/bootstrap.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
     <script src='/javascripts/globals.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   </head>
   <body>
-    <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
+    <div>
+      <h1>{{ title }}</h1>
+      <p>Welcome to {{ title }}</p>
+    </div>
 
-  <div>
-    <h1 class="calorieTotal" style="color: red;">0</h1>
-  </div>
+    <div>
+      <h1 class="calorieTotal" style="color: red;">0</h1>
+    </div>
 
-  <div class="itemSelect">
-  </div>
+    <div class="row item-select-div">
+    </div>
 
-  <button class="btn1">Add New Item</button>
-  <button class="btn2">Done</button>
+    <div style="padding-top: 10px;">
+      <input class="btn btn-danger add-new-item" type="button" value="New Item">
+      <input class="btn btn-success done" type="submit" value="Submit">
+    </div>
 
-  <script>
+    <script>
+    function getval(sel) {
+      $(document).ready(function(){
+        var parent_div = $(sel).parents(".select-text-parent");
+        var child_text_input = $(parent_div).find(".input-group-addon");
+        $(child_text_input).text(keyword_dictionary[sel.value].serving);
+      });
+    }
+
     $(document).ready(function() {
-      $(".btn1").click(function(){
-        $('.itemSelect').append("<div><select class='select'></select> Amount: <input class ='input-mini' type='text' id='textInput" + textIndex + "' placeholder='#.##'></div>");
+      $(".add-new-item").click(function(){
+        var selectHTML = "<div class='select-text-parent' style='padding-bottom: 5px;'>" +
+                         "<div class='col-xs-2'>" +
+                         "<select class='form-control select' onchange='getval(this);'></select>" +
+                         "</div>"
+
+        var textInputHTML = "<div class='col-xs-2 input-group'>" +
+                            "<input type='text' class='form-control text-input' id='textInput" + textIndex + "'>" +
+                            "<div class='input-group-addon'><span>grams</span></div>" +
+                            "</div>" + 
+                            "</div>"
+
+        $('.item-select-div').append(selectHTML + textInputHTML);
         textIndex += 1;
         for(var key in keyword_dictionary){
           $('.select').append("<option>" + key + "</option>");
         }
       });
 
-      $(".btn2").click(function(){
+      $(".done").click(function(){
         var total = 0.0;
         // get an array of JSON Objects with the selected options
         var selected_items = $('.select').find(":selected").get();
