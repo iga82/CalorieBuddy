@@ -4,6 +4,7 @@ var textIndex = 0;
 
 var keyword_dictionary = {
   "Avocado"            : {serving: "grams", calories: 1.7},
+  "Al Pastor"          : {serving: "grams", calories: 2.21},
   "Wheat Bread"        : {serving: "slices", calories: 60},
   "Cheddar Cheese"     : {serving: "grams", calories: 3.22},
   "Chicken Breast"     : {serving: "grams", calories: 1.15},
@@ -14,7 +15,7 @@ var keyword_dictionary = {
   "Honey Ham"          : {serving: "grams", calories: 1.23},
   "Mandarins"          : {serving: "mandarin", calories: 40},
   "Mushrooms"          : {serving: "grams", calories: 0.25},
-  "Pinto Beans"        : {serving: "grams", calories: 0.85},
+  "Pinto Beans"        : {serving: "grams", calories: 0.64},
   "Pasta"              : {serving: "grams", calories: 1.67},
   "Pasta Sauce"        : {serving: "cups", calories: 100},
   "Protein Shake"      : {serving: "shake", calories: 130},
