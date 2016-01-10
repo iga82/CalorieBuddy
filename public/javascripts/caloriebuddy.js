@@ -14,11 +14,11 @@ $(function(){
 
         if(!carbInput || !proteinInput || !fatInput){
             $("#macro-info").hide();
-            $("#macro-input").addClass("has-error");
+            $(".macro-input").addClass("has-error");
         }
         else if(!isInteger(carbInput) || !isInteger(proteinInput) || !isInteger(fatInput)){
             $("#macro-info").hide();
-            $("#macro-input").addClass("has-error");
+            $(".macro-input").addClass("has-error");
         }
         else{
             // fill in nutrition info
@@ -30,7 +30,7 @@ $(function(){
 
         // if nutrition info was set
         if(nutritionInfo){
-            $("#macro-input").removeClass("has-error");
+            $(".macro-input").removeClass("has-error");
             var calorieTotal = 0;
             for (key in nutritionInfo){
                 console.log(key);
