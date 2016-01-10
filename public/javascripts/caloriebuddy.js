@@ -25,23 +25,26 @@ $(function(){
             nutritionInfo = {};
             nutritionInfo.carbCalories = parseInt(carbInput) * 4;
             nutritionInfo.proteinCalories = parseInt(proteinInput) * 4;
-            nutritionInfo.fatCalories = parseInt(fatInput) * 4;
+            nutritionInfo.fatCalories = parseInt(fatInput) * 9;
         }
 
+        // if nutrition info was set
         if(nutritionInfo){
             $("#macro-input").removeClass("has-error");
-            var carbCalories = $("#carb-input").val() * 4;
-            var proteinCalories = $("#protein-input").val() * 4;
-            var fatCalories = $("#fat-input").val() * 9;
-            var calorieTotal = carbCalories + proteinCalories + fatCalories;
+            var calorieTotal = 0;
+            for (key in nutritionInfo){
+                console.log(key);
+                calorieTotal += nutritionInfo[key];
+            }
 
-            $("#carb-percentage").text("Carbs: " + Math.round((carbCalories / calorieTotal) * 100) + "%");
-            $("#protein-percentage").text("Protein: " + Math.round((proteinCalories / calorieTotal) * 100) + "%");
-            $("#fat-percentage").text("Fat: " + Math.round((fatCalories / calorieTotal) * 100) + "%");
+            $("#carb-percentage").text("Carbs: " + Math.round((nutritionInfo.carbCalories / calorieTotal) * 100) + "%");
+            $("#protein-percentage").text("Protein: " + Math.round((nutritionInfo.proteinCalories / calorieTotal) * 100) + "%");
+            $("#fat-percentage").text("Fat: " + Math.round((nutritionInfo.fatCalories / calorieTotal) * 100) + "%");
             $("#macro-info").show();
         }
     });
 
+    /* test if a string contains an integer */
     function isInteger (numStr){
         // test num string to see if integer
         return /^([0-9]\d*)$/.test(numStr);
