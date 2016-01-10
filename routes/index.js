@@ -9,7 +9,7 @@ var router = express.Router();
 // responding to a get
 router.get('/', function(req, res){
   res.render('index',{
-    title: 'Calorie Buddy',
+    title: 'Macro Buddy',
   });
 
 });

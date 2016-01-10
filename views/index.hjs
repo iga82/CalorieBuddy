@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src='/javascripts/globals.js'></script>
         <script type="text/javascript" src="/javascripts/caloriebuddy.js"></script>
     </head>
     <body>
@@ -32,23 +31,12 @@
             </div>
         </div>
 
-        <div>
-            <h1 class="calorieTotal" style="color: red;">0</h1>
-        </div>
-
+        <!-- where nutritianl info will be displayed -->
         <div id="macro-info" style="display: none;">
             <h3>Percentages rounded to nearest integer:</h5>
             <h4 id="carb-percentage" style="color: red;"></h4>
             <h4 id="protein-percentage" style="color: green;"></h4>
             <h4 id="fat-percentage" style="color: blue;"></h4>
-        </div>
-
-        <div class="row item-select-div">
-        </div>
-
-        <div style="padding-top: 10px;">
-              <input class="btn btn-danger add-new-item" type="button" value="New Item">
-              <input class="btn btn-success done" type="submit" value="Submit">
         </div>
     </body>
 </html>
