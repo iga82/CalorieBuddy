@@ -19,13 +19,24 @@
         <!-- input group for macros -->
         <div class="container-fluid">
             <div class="row">
-                <h4>Please Enter the grams in one serving for the following:</h3>
+                <h3>Please Enter the grams in one serving for the following:</h3>
             </div>
             <div class="row">
                 <form class="form-inline">
-                    <input type="text" class="form-control" id="carb-input" placeholder="Carbs">
-                    <input type="text" class="form-control" id="protein-input" placeholder="Protein">
-                    <input type="text" class="form-control" id="fat-input" placeholder="Fat">
+                    <div class="form-group" id="macro-input">
+                        <div class="input-group">
+                            <input type="number" class="form-control has-error" id="carb-input" placeholder="Carbs">
+                            <div class="input-group-addon">grams</div>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="protein-input" placeholder="Protein">
+                            <div class="input-group-addon">grams</div>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="fat-input" placeholder="Fat">
+                            <div class="input-group-addon">grams</div>
+                        </div>
+                    </div>
                     <input class="btn btn-success" id="done" type="submit" value="Done">
                 </form>
             </div>
