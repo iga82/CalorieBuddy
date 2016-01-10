@@ -5,8 +5,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var MongoClient = require('mongodb').MongoClient
-  , assert = require('assert');
+// var MongoClient = require('mongodb').MongoClient
+//   , assert = require('assert');
 
 // requiring routes
 var routes = require('./routes/index');
