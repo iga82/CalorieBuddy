@@ -5,10 +5,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var MongoClient = require('mongodb').MongoClient
+  , assert = require('assert');
 
 // requiring routes
 var routes = require('./routes/index');
-// var users = require('./routes/users');
 
 // creating app, by running express
 var app = express();
@@ -16,6 +17,16 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views')); // setting default view to views directory
 app.set('view engine', 'hjs');
+
+// connect to mongodb
+var url = 'mongodb://localhost:27017/myproject'; // Connection URL
+// Use connect method to connect to the Server
+// MongoClient.connect(url, function(err, db) {
+//   assert.equal(null, err);
+//   console.log("Connected correctly to server");
+
+//   db.close();
+// });
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -28,7 +39,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // how we tell our routes to get used
 app.use('/', routes);
-// app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

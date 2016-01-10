@@ -1,86 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
-    <script src='/javascripts/globals.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  </head>
-  <body>
-    <div>
-      <h1>{{ title }}</h1>
-      <p>Welcome to {{ title }}</p>
-    </div>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title }}</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src='/javascripts/globals.js'></script>
+        <script type="text/javascript" src="/javascripts/caloriebuddy.js"></script>
+    </head>
+    <body>
+        <div>
+              <h1>{{ title }}</h1>
+              <p>Welcome to {{ title }}</p>
+        </div>
 
-    <div>
-      <h1 class="calorieTotal" style="color: red;">0</h1>
-    </div>
+        <!-- input group for macros -->
+        <div class="container-fluid">
+            <div class="row">
+                <h4>Please Enter the grams in one serving for the following:</h3>
+            </div>
+            <div class="row">
+                <form class="form-inline">
+                    <input type="text" class="form-control" id="carb-input" placeholder="Carbs">
+                    <input type="text" class="form-control" id="protein-input" placeholder="Protein">
+                    <input type="text" class="form-control" id="fat-input" placeholder="Fat">
+                    <input class="btn btn-success" id="done" type="submit" value="Done">
+                </form>
+            </div>
+        </div>
 
-    <div class="row item-select-div">
-    </div>
+        <div>
+            <h1 class="calorieTotal" style="color: red;">0</h1>
+        </div>
 
-    <div style="padding-top: 10px;">
-      <input class="btn btn-danger add-new-item" type="button" value="New Item">
-      <input class="btn btn-success done" type="submit" value="Submit">
-    </div>
+        <div id="macro-info" style="display: none;">
+            <h3>Percentages rounded to nearest integer:</h5>
+            <h4 id="carb-percentage" style="color: red;"></h4>
+            <h4 id="protein-percentage" style="color: green;"></h4>
+            <h4 id="fat-percentage" style="color: blue;"></h4>
+        </div>
 
-    <script>
-    function getval(sel) {
-      $(document).ready(function(){
-        var parent_div = $(sel).parents(".select-text-parent");
-        var child_text_input = $(parent_div).find(".input-group-addon");
-        $(child_text_input).text(keyword_dictionary[sel.value].serving);
-      });
-    }
+        <div class="row item-select-div">
+        </div>
 
-    $(document).ready(function() {
-      $(".add-new-item").click(function(){
-        var selectHTML = "<div class='select-text-parent' style='padding-bottom: 5px;'>" +
-                         "<div class='col-xs-2'>" +
-                         "<select class='form-control select' onchange='getval(this);'></select>" +
-                         "</div>"
-
-        var textInputHTML = "<div class='col-xs-2 input-group'>" +
-                            "<input type='text' class='form-control text-input' id='textInput" + textIndex + "'>" +
-                            "<div class='input-group-addon'><span>grams</span></div>" +
-                            "</div>" + 
-                            "</div>"
-
-        $('.item-select-div').append(selectHTML + textInputHTML);
-        textIndex += 1;
-        for(var key in keyword_dictionary){
-          $('.select').append("<option>" + key + "</option>");
-        }
-      });
-
-      $(".done").click(function(){
-        var total = 0.0;
-        // get an array of JSON Objects with the selected options
-        var selected_items = $('.select').find(":selected").get();
-        // index that loops through the different text boxes
-        var loopThroughtTextIndex = 0;
-        // loop through the array of selected items
-        $.each(selected_items, function(index, value) {
-          var textInputName = '#textInput' + loopThroughtTextIndex;
-          // increase text input index
-          loopThroughtTextIndex += 1;
-          // get the value from the text input box and convert into an int
-          var textInputField = parseFloat($(textInputName).val());
-          if(isNaN(textInputField)){
-            textInputField = 0;
-          }
-          // build up the total
-          total += keyword_dictionary[$(value).val()].calories * textInputField;
-        });
-        $('.calorieTotal').html(total);
-      });
-
-    });
-  </script>
-</body>
-
+        <div style="padding-top: 10px;">
+              <input class="btn btn-danger add-new-item" type="button" value="New Item">
+              <input class="btn btn-success done" type="submit" value="Submit">
+        </div>
+    </body>
 </html>
