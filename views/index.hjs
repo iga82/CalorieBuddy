@@ -18,7 +18,7 @@
         <!-- input group for macros -->
         <div class="container-fluid">
             <div class="row">
-                <h3 style="color: red;">Please enter the grams in one serving for the following:</h3>
+                <h3 style="color: blue;">Please enter the grams in one serving for the following:</h3>
             </div>
             <form class="form" style="padding-top: 10px;">
                 <div class="form-group macro-input">
@@ -44,6 +44,8 @@
                     </div>
                 </div>
                 <input class="btn btn-success" id="done" type="submit" value="Done">
+                <input class="btn btn-danger" id="cancel" type="submit" value="Cancel">
+
             </form>
         </div>
 
