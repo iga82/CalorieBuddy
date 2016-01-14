@@ -46,11 +46,12 @@ $(function(){
     });
 
     $("#cancel").click(function(){
-      $("#carb-input").val = 0;
-      $("#protein-input").val = 0;
-      $("#fat-input").val = 0;
+      event.preventDefault();
+      $("#carb-input").val(0);
+      $("#protein-input").val(0);
+      $("#fat-input").val(0);
     });
-    
+
     /* test if a string contains an integer */
     function isInteger (numStr){
         // test num string to see if integer
